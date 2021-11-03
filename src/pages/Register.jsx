@@ -3,10 +3,11 @@ import AppContext from '../context/AppContext';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 
-function Login() {
-  const { setIsLogged } = useContext(AppContext);
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+function Register() {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const history = useHistory();
 
   // function handleClick() {
@@ -26,38 +27,42 @@ function Login() {
     return true;
   };
 
-  const login = () => {
-    setIsLogged(true)
-    if(setIsLogged){
-      history.push('/home');
-    }
+  const register = () => {
+      history.push('/');
   }
 
   return (
     <section>
       <input
+        type="text"
+        placeholder="Nome"
+        onChange={ (e) => setName(e.target.value) }
+      />
+      <input
         type="email"
-        data-testid="email-input"
         placeholder="E-mail"
         onChange={ (e) => setEmail(e.target.value) }
       />
       <input
         type="password"
-        data-testid="password-input"
         placeholder="Senha"
         onChange={ (e) => setPassword(e.target.value) }
+      />
+      <input
+        type="password"
+        placeholder="Confirmar senha"
+        onChange={ (e) => setConfirmPassword(e.target.value) }
       />
       <button
         type="button"
         data-testid="login-submit-btn"
         disabled={ verifyEmailAndPassword() }
-        onClick={ () => login() }
+        onClick={ () => register() }
       >
-        Entrar
+        Cadastrar
       </button>
-      <Link to='/register'>Não tem cadastro? Cadastre-se agora!</Link>
     </section>
   );
 }
 
-export default Login;
+export default Register;
