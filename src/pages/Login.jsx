@@ -19,8 +19,8 @@ function Login() {
   const verifyEmailAndPassword = () => {
     const reg = /\S+@\S+\.\S+/
       .test(email);
-    const maxLenght = 6;
-    if (reg && password.length > maxLenght) {
+    const minLenght = 6;
+    if (reg && password.length >= minLenght) {
       return false;
     }
     return true;

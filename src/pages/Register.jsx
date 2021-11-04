@@ -10,13 +10,6 @@ function Register() {
   const [clicked, setClicked] = useState(false);
   const history = useHistory();
 
-  // function handleClick() {
-  //   localStorage.setItem('mealsToken', 1);
-  //   localStorage.setItem('cocktailsToken', 1);
-  //   const localStorageEmail = { email };
-  //   localStorage.setItem('user', JSON.stringify(localStorageEmail));
-  // }
-
   const verifyName = () => {
     const nameAndSurname = /[^\s]+\s+[^\s]+/;
     const nameValid = nameAndSurname.test(name);
@@ -66,9 +59,24 @@ function Register() {
     verifyName();
   }, [name, email, password, confirmPassword])
 
-  const register = () => {
+  const register = async () => {
     setClicked(true)
     if(error === ''){
+      const requestOptions = {
+        method: 'POST',
+        headers: {'Content-type': 'application/json'},
+        body: JSON.stringify({
+          name, 
+          email,
+          password
+        })
+      }
+      const response = await fetch('http://localhost:8080/users', requestOptions);
+      const data = await response.json();
+      if (data.message) {
+        setError(data.message)
+        return;
+      } 
       history.push('/');
       return;
     }
