@@ -7,6 +7,7 @@ function Login() {
   const { setIsLogged } = useContext(AppContext);
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+  const [error, setError] = useState('')
   const history = useHistory();
 
   // function handleClick() {
@@ -26,7 +27,23 @@ function Login() {
     return true;
   };
 
-  const login = () => {
+  const login = async () => {
+    const requestOptions = {
+      method: 'POST',
+      headers: {'Content-type': 'application/json'},
+      body: JSON.stringify({
+        email,
+        password
+      })
+    }
+    const response = await fetch('http://localhost:8080/users/login', requestOptions);
+    const data = await response.json();
+    if (data.message) {
+      setError(data.message)
+      return;
+    } 
+    localStorage.setItem('token', data.token)
+    console.log(data.token)
     setIsLogged(true)
     if(setIsLogged){
       history.push('/home');
@@ -55,6 +72,7 @@ function Login() {
       >
         Entrar
       </button>
+      {error && <div>{error}</div>}
       <Link to='/register'>Não tem cadastro? Cadastre-se agora!</Link>
     </section>
   );
