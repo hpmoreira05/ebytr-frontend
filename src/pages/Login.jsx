@@ -2,6 +2,8 @@ import React, { useContext, useState } from 'react';
 import AppContext from '../context/AppContext';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
+import loginImage from '../images/Saly-6imageLogin.png';
+import '../styles/login.css'
 
 function Login() {
   const { setIsLogged } = useContext(AppContext);
@@ -52,28 +54,41 @@ function Login() {
 
   return (
     <section>
-      <input
-        type="email"
-        data-testid="email-input"
-        placeholder="E-mail"
-        onChange={ (e) => setEmail(e.target.value) }
-      />
-      <input
-        type="password"
-        data-testid="password-input"
-        placeholder="Senha"
-        onChange={ (e) => setPassword(e.target.value) }
-      />
-      <button
-        type="button"
-        data-testid="login-submit-btn"
-        disabled={ verifyEmailAndPassword() }
-        onClick={ () => login() }
-      >
-        Entrar
-      </button>
-      {error && <div>{error}</div>}
-      <Link to='/register'>Não tem cadastro? Cadastre-se agora!</Link>
+      <div className='loginContainer'>
+        <img src={loginImage} alt='Men holding a brush'/>
+        <div className='formContainer'>
+          <h2>Login</h2>
+          <label htmlFor='emailLogin'>E-mail</label>
+          <input
+            type="email"
+            id="emailLogin"
+            onChange={ (e) => setEmail(e.target.value) }
+          />
+          <label htmlFor='passwordLogin'>Senha</label>
+          <input
+            type="password"
+            id="passwordLogin"
+            onChange={ (e) => setPassword(e.target.value) }
+          />
+          <button
+            className="btnLogin"
+            type="button"
+            disabled={ verifyEmailAndPassword() }
+            onClick={ () => login() }
+          >
+            Entrar
+          </button>
+          {error && <div>{error}</div>}
+          <div className="registerContainer">
+            <div>Ainda não possui conta?</div>
+            <Link to='/register'>
+              <button className="btnRegister">
+                Cadastrar
+              </button>
+            </Link>
+          </div>
+        </div>
+      </div>
     </section>
   );
 }

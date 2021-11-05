@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import registerImage from '../images/Saly-7imageRegister.png' 
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -84,41 +85,54 @@ function Register() {
 
   return (
     <section>
-      <label htmlFor="name">Nome:</label>
-      <input
-        id="name"
-        type="text"
-        placeholder="Nome"
-        onChange={ (e) => setName(e.target.value) }
-      />
-      <label htmlFor="email">Email:</label>
-      <input
-        id="email"
-        type="email"
-        placeholder="E-mail"
-        onChange={ (e) => setEmail(e.target.value) }
-      />
-      <label htmlFor="password">Senha:</label>
-      <input
-        id="password"
-        type="password"
-        placeholder="Senha"
-        onChange={ (e) => setPassword(e.target.value) }
-      />
-      <label htmlFor="confirmPassword">Confirmar senha:</label>
-      <input
-        id="confirmPassword"
-        type="password"
-        placeholder="Confirmar senha"
-        onChange={ (e) => setConfirmPassword(e.target.value) }
-      />
-      { clicked && <div>{ error }</div> }
-      <button
-        type="submit"
-        onClick={ () => register() }
-      >
-        Cadastrar
-      </button>
+      <div className='loginContainer'>
+        <img src={registerImage} alt="woman"/>
+        <div className='formContainer'>
+          <h2>Cadastro</h2>
+          <label htmlFor="name">Nome completo</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Nome"
+            onChange={ (e) => setName(e.target.value) }
+          />
+          <label htmlFor="email">E-mail</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="E-mail"
+            onChange={ (e) => setEmail(e.target.value) }
+          />
+          <label htmlFor="password">Senha</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="Senha"
+            onChange={ (e) => setPassword(e.target.value) }
+          />
+          <label htmlFor="confirmPassword">Confirmar senha</label>
+          <input
+            id="confirmPassword"
+            type="password"
+            placeholder="Confirmar senha"
+            onChange={ (e) => setConfirmPassword(e.target.value) }
+          />
+          { clicked && <div>{ error }</div> }
+          <button
+            type="submit"
+            className="btnLogin"
+            onClick={ () => register() }
+          >
+            Cadastrar
+          </button>
+          <div className="registerContainer">
+            <div>Já possui conta?</div>
+            <Link to='/'>
+              <button className="btnRegister">Login</button>
+            </Link>
+            </div>
+        </div>
+      </div>
     </section>
   );
 }

@@ -4,6 +4,7 @@ import AppProvider from './context/AppProvider';
 import Login from './pages/Login';
 import Home from './pages/Home'
 import Register from './pages/Register'
+import './styles/global.css'
 
 const isAutenticated = async () => {
   const token = localStorage.getItem('token')
