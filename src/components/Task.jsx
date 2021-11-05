@@ -1,4 +1,9 @@
 import React, { useState } from 'react';
+import trash from '../images/Vectortrash.svg'
+import play from '../images/Vectorplay.svg'
+import done from '../images/Done.svg'
+import inProgress from '../images/Pending.svg'
+import '../styles/tasks.css';
 
 function Task({task}) {
   const [toDo, setToDo] = useState(task)
@@ -48,13 +53,23 @@ function Task({task}) {
   return (
     <>
     {toDo && (
-      <div>
-        <button onClick={() => fetchUpdateTaskDone()}>{toDo.status}</button>
-        <div>{`Criado em: ${toDo.createdAt}`}</div>
-        <div>{toDo.description}</div>
-        <button onClick={() => fetchUpdateTaskInProgress()}>Play</button>
-        <button onClick={() => fetchDeleteTask()} >Lixo</button>
-      </div>
+      <section className="task">
+        <div className="listItem">
+          <div className="taskAndButton">
+            <button className="statusBttn" disabled={toDo.status === 'Pendente' && true} onClick={() => fetchUpdateTaskDone()}>
+              <img src={toDo.status === 'Pronto' ? done : inProgress} alt="icon"/>
+            </button>
+            <div>
+              <div className="createdAt">{`Criado em: ${toDo.createdAt}`}</div>
+              <div className="description">{toDo.description}</div>
+            </div>
+          </div>
+          <div>
+            <button className="playBttn" disabled={toDo.status !== 'Pendente' && true} onClick={() => fetchUpdateTaskInProgress()}><img src={play} alt="play"/></button>
+            <button className="trashBttn" onClick={() => fetchDeleteTask()} ><img src={trash} alt="trash"/></button>
+          </div>
+        </div>
+      </section>
     )}
     </>
   )

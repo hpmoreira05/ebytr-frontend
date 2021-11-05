@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import Task from '../components/Task'
+import logo from '../images/logo.png'
+import '../styles/tasks.css'
 
 function Home() {
   const [isLoading, setIsLoading] = useState(true)
@@ -55,19 +57,30 @@ function Home() {
 
   return (
     <>
-      <div>Ola, {!isLoading && userName}</div>
-      <label htmlFor="task">Tarefa</label>
-      <input
-        id="task"
-        type="text"
-        onChange={ (e) => setNewTask(e.target.value) }
-        />
-      <button onClick={() => fetchCreateTask()} disabled={newTask === '' && true}>+</button>
-        {!isLoading && (
-          <div>
-            {tasks.map((task, index) => <Task key={index} task={task}/>)}
+      <section className="home">
+        <div className="homeHeader">
+          <img src={logo} alt="logo" className="logoSmall"/>
+          <div className="homeContainer">
+            <h2>Ola, {!isLoading && userName}</h2>
+            <div>
+              <label htmlFor="task">Tarefa</label>
+              <div className="addTaskContainer">
+                <input
+                  id="task"
+                  type="text"
+                  onChange={ (e) => setNewTask(e.target.value) }
+                  />
+                <button onClick={() => fetchCreateTask()} disabled={newTask === '' && true}>+</button>
+              </div>
+            </div>
           </div>
-      )}
+        </div>
+          {!isLoading && (
+            <div className="tasks">
+              {tasks.map((task, index) => <Task key={index} task={task}/>)}
+            </div>
+        )}
+      </section>
     </>
   )
 }
