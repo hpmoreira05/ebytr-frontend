@@ -1,3 +1,7 @@
+.logo{
+  position: absolute;
+}
+
 .loginContainer{
   display: flex;
   width: 100%;
@@ -71,5 +75,4 @@
 .btnRegister:hover{
   background-color: #864BD9;
   color: #ffffff;
-
 }

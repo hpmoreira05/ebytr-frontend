@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
-import registerImage from '../images/Saly-7imageRegister.png' 
+import registerImage from '../images/Saly-7imageRegister.png'; 
+import logo from '../images/logo.png';
 
 function Register() {
   const [email, setEmail] = useState('');
@@ -85,6 +86,7 @@ function Register() {
 
   return (
     <section>
+      <img src={logo} alt="logo" className='logo'/>
       <div className='loginContainer'>
         <img src={registerImage} alt="woman"/>
         <div className='formContainer'>

@@ -3,6 +3,7 @@ import AppContext from '../context/AppContext';
 import { Link } from 'react-router-dom';
 import { useHistory } from 'react-router-dom';
 import loginImage from '../images/Saly-6imageLogin.png';
+import logo from '../images/logo.png'
 import '../styles/login.css'
 
 function Login() {
@@ -54,6 +55,7 @@ function Login() {
 
   return (
     <section>
+      <img src={logo} alt="logo" className='logo'/>
       <div className='loginContainer'>
         <img src={loginImage} alt='Men holding a brush'/>
         <div className='formContainer'>
