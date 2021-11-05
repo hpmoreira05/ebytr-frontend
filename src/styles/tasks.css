@@ -1,0 +1,112 @@
+.homeContainer{
+  display: flex;
+  flex-direction: column;
+  background-color: #E3DEFF;
+  width: 70%;
+  height: 250px;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-evenly;
+}
+
+.homeContainer label{
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.homeHeader{
+  background-color: #E3DEFF;
+  height: 282px;
+}
+
+.logoSmall{
+  position: absolute;
+  width: 75px;
+  padding-left: 26px;
+}
+
+.addTaskContainer{
+  display: flex;
+  justify-content: space-between;
+}
+
+.addTaskContainer input{
+  width: calc(100% - 85px);
+}
+
+.addTaskContainer button{
+  height: 56px;
+  width: 74px;
+  background: #864BD9;
+  border-radius: 8px;
+  border: none;
+  color: #ffffff;
+  font-size: 50px;
+  line-height: 0;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.addTaskContainer button:hover{
+  background: #6927c5;
+}
+
+.listItem{
+  display: flex;
+  width: 70%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: space-between;
+  background: #FFFFFF;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  height: 85px;
+  margin-top: 19px;
+  align-items: center;
+  padding-left: 11px;
+  padding-right: 28px;
+}
+
+.taskAndButton{
+  display: flex;
+}
+
+.task{
+  background-color: #F9F8FF;
+}
+
+.home{
+  background-color: #F9F8FF;
+  height: 100vh;
+}
+
+.statusBttn, .playBttn, .trashBttn{ 
+  background-color: transparent;
+  border: none;
+  margin-right: 18px;
+  cursor: pointer;
+}
+
+.statusBttn:disabled{
+  display: none;
+}
+
+.playBttn:disabled{
+  display: none;
+}
+
+.createdAt{
+  color: #9D96C7;
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 24px;
+}
+
+.description{
+  font-size: 16px;
+  line-height: 24px;
+  color: #000000;
+}

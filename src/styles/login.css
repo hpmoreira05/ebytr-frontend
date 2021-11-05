@@ -1,0 +1,78 @@
+.logo{
+  position: absolute;
+}
+
+.loginContainer{
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  justify-content: space-evenly; 
+  align-items: center;
+}
+
+.formContainer{
+  width: 322px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.formContainer label{
+  margin-top: 24px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px
+}
+
+.formContainer h2{
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.btnLogin{
+  background: #864BD9;
+  border-radius: 8px;
+  color: #fff;
+  height: 48px;
+  border: none;
+  margin-top: 38px;
+  font-weight: bold;
+  font-size: 16px;
+  line-height: 24px;
+  text-transform: uppercase;
+}
+
+.btnLogin:disabled{
+  background: #af8edd;
+}
+
+.registerContainer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 44px;
+}
+
+.btnRegister{
+  height: 48px;
+  width: 322px;
+  background-color: transparent;
+  border: 2px solid #864BD9;
+  box-sizing: border-box;
+  border-radius: 8px;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #864BD9;
+  margin-top: 36px;
+  transition: 0.3s;
+}
+
+.btnRegister:hover{
+  background-color: #864BD9;
+  color: #ffffff;
+}

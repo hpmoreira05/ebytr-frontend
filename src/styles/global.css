@@ -1,0 +1,16 @@
+* {
+  font-family: 'Open Sans', sans-serif;
+  color: #36106B;
+  margin: 0;
+}
+
+input{
+  height: 56px;
+  border: 2px solid #864BD9;
+  box-sizing: border-box;
+  border-radius: 8px;
+  background-color: transparent;
+  padding-left: 16px;
+  font-size: 16px;
+}
+
